@@ -24,14 +24,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <header>
           <nav>
-              <Link href="/">Home</Link>
-              <Link href="/movies">Movies</Link>
-              <Link href="/about">About</Link>
+            <Link href="/">Home</Link>
+            <Link href="/movies">Movies</Link>
+            <Link href="/about">About</Link>
           </nav>
         </header>
-        <main>
-        {children}
-        </main>
+        <main>{children}</main>
 
         <footer> Made by Sander - Data from TMDB </footer>
       </body>
