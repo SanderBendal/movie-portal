@@ -10,5 +10,5 @@ export type Movie = {
 export type MovieListResponse = {
     results: Movie[];
     total_pages: number;
-    total_results: string;
+    total_results: number;
 }

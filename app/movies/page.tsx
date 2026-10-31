@@ -7,8 +7,7 @@ export default async function MoviesPage() {
     },
   });
 
-  const data = await res.json();
-  console.log(data);
+  const data: MovieListResponse = await res.json();
 
   return (
     <>
