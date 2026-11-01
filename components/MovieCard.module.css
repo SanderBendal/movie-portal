@@ -1,0 +1,36 @@
+.card {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  background: var(--surface);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.title {
+  margin: 0.75rem 0.75rem 0.25rem;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.year {
+  margin: 0 0.75rem 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.placeholder {
+  aspect-ratio: 2 / 3;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: var(--border);
+  color: var(--muted);
+  text-align: center;
+}

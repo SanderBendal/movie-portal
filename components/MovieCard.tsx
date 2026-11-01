@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Movie } from "@/types/movie";
+import styles from "./MovieCard.module.css";
 
 type MovieCardProps = {
   movie: Movie;
@@ -10,7 +11,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
   const year = movie.release_date ? movie.release_date.slice(0, 4) : "Unknown year";
 
   return (
-    <Link href={`/movies/${movie.id}`}>
+    <Link href={`/movies/${movie.id}`} className={styles.card}>
       <article>
         {movie.poster_path ? (
           <Image
@@ -20,10 +21,10 @@ export default function MovieCard({ movie }: MovieCardProps) {
             height={513}
           />
         ) : (
-          <div>No poster available</div>
+          <div className={styles.placeholder}>No poster available</div>
         )}
-        <h2>{movie.title}</h2>
-        <p>{year}</p>
+        <h2 className={styles.title}>{movie.title}</h2>
+        <p className={styles.year}>{year}</p>
       </article>
     </Link>
   );

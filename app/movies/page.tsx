@@ -1,5 +1,6 @@
 import { getPopularMovies, searchMovies } from "@/lib/tmdb";
 import MovieCard from "@/components/MovieCard";
+import styles from "./page.module.css";
 
 export default async function MoviesPage({
   searchParams,
@@ -30,7 +31,7 @@ export default async function MoviesPage({
       {data.results.length === 0 ? (
         <p>{`No movies found for "${query}". Try another title.`}</p>
       ) : (
-        <ul>
+        <ul className={styles.grid}>
           {data.results.map((movie) => (
             <li key={movie.id}>
               <MovieCard movie={movie} />
