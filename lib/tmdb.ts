@@ -33,3 +33,20 @@ export async function getMovie(id: string): Promise<Movie | null> {
 
   return res.json();
 }
+
+export async function searchMovies(query: string): Promise<MovieListResponse> {
+  const res = await fetch(
+    `${BASE_URL}/search/movie?query=${encodeURIComponent(query)}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.TMDB_TOKEN}`,
+      },
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch search results");
+  }
+
+  return res.json();
+}
