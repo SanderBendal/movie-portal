@@ -1,5 +1,6 @@
 import { getPopularMovies, searchMovies } from "@/lib/tmdb";
 import MovieCard from "@/components/MovieCard";
+import SearchForm from "@/components/SearchForm";
 import styles from "./page.module.css";
 
 export default async function MoviesPage({
@@ -16,11 +17,7 @@ export default async function MoviesPage({
     <>
       <h1>Movies</h1>
 
-      <form action="/movies">
-        <label htmlFor="search">Search by title</label>
-        <input id="search" name="q" type="search" defaultValue={query} />
-        <button type="submit">Search</button>
-      </form>
+      <SearchForm defaultValue={query} />
 
       <p>
         {query
