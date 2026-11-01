@@ -18,7 +18,7 @@ export default async function MovieDetailPage({
       <h1>{movie.title}</h1>
       <p>{movie.overview}</p>
       <p>Released: {movie.release_date}</p>
-      <p>Rating: {movie.vote_average}</p>
+      <p>Rating: {movie.vote_average.toFixed(1)}</p>
     </article>
   );
 }
