@@ -1,6 +1,5 @@
 import { getPopularMovies } from "@/lib/tmdb";
-import Link from "next/link";
-import link from "next/link";
+import MovieCard from "@/components/MovieCard";
 
 export default async function MoviesPage() {
   const data = await getPopularMovies();
@@ -11,9 +10,7 @@ export default async function MoviesPage() {
       <ul>
         {data.results.map((movie) => (
           <li key={movie.id}>
-            <Link href={`/movies/${movie.id}`}>
-              {movie.title}
-            </Link>
+            <MovieCard movie={movie} />
           </li>
         ))}
       </ul>
