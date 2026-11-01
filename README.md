@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movie Portal
 
-## Getting Started
+Movie Portal is a website for finding something to watch. The front page
+shows what is popular right now, and you can search for any film by title in the Movies selection.
+Every movie has its own page with the poster, release year, rating and a
+short plot summary.
 
-First, run the development server:
+It is made for anyone who wants a quick overview of a movie without
+scrolling through streaming menus.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Built with Next.js (App Router) and TypeScript as a school assignment.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository and install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/SanderBendal/movie-portal.git
+   cd movie-portal
+   npm install
+   ```
 
-## Learn More
+2. Get a free API Read Access Token from TMDB:
+   create an account at themoviedb.org, then go to
+   **Settings → API** and request a Developer key.
 
-To learn more about Next.js, take a look at the following resources:
+3. Create a file named `.env.local` in the project root with this line,
+   replacing the placeholder with your own token (see `.env.example`):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   `TMDB_TOKEN=your-token-here`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   The file is ignored by Git, so the token is never committed.
 
-## Deploy on Vercel
+4. Start the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   Then open http://localhost:3000.
+
+To create a production build, run `npm run build`.
+
+## API
+
+All movie data and images come from [The Movie Database (TMDB) API](https://developer.themoviedb.org/).
+The site uses these endpoints:
+
+- `/movie/popular`: popular movies (front page and movies page)
+- `/search/movie`: search by title
+- `/movie/{id}`: details for one movie
+
+This product uses the TMDB API but is not endorsed or certified by TMDB.
+
+## Known limitations
+
+- Only the first page of results (20 movies) is shown, both for the
+  popular list and for search results. There is no pagination yet.
+- Search only matches movie titles. There is no filtering by genre or
+  sorting.
+- The detail page shows basic information only (no cast, trailers or
+  where to stream).
+- The site is only available in English.
